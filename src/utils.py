@@ -3,8 +3,8 @@ import os
 import torch
 import torch.nn.functional as F
 
-train_path = {f'data_batch_{i}': f'dataset/cifar10/cifar-10-batches-py/data_batch_{i}' for i in range(1,6)}
-test_path = {'test_batch' : 'dataset/cifar10/cifar-10-batches-py/test_batch'}
+train_path = {f'data_batch_{i}': f'data/cifar-10-batches-py/data_batch_{i}' for i in range(1,6)}
+test_path = {'test_batch' : 'data/cifar-10-batches-py/test_batch'}
 data_dict_keys = {'batch_label':b'batch_label', 'labels':b'labels', 'data':b'data', 'filenames':b'filenames'}
 
 def unpickle(file) -> dict:
@@ -199,8 +199,8 @@ def consistency_loss(logits_s, logits_w, class_acc, p_target, p_model, name='ce'
 
 
 if __name__ == '__main__':
-    # filename = 'dataset/cifar10/cifar-10-batches-py/data_batch_1'
-    filename = 'dataset/cifar10/cifar-10-batches-py/test_batch'
+    # filename = 'data/cifar-10-batches-py/data_batch_1'
+    filename = 'data/cifar-10-batches-py/test_batch'
     pic_dict = unpickle(filename)
     """ dict_keys([b'batch_label', b'labels', b'data', b'filenames']) """
     a = np.array(pic_dict[b'data'])
